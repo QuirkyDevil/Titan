@@ -20,3 +20,4 @@ func _on_Area_body_entered(body):
 
 func _on_LightTimer_timeout():
 	$OmniLight.visible = false
+

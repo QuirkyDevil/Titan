@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tdata/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://terrain_texture/slot0_normal_roughness.packed_tex" type="Texture" id=6]
 [ext_resource path="res://terrain_texture/slot1_normal_roughness.packed_tex" type="Texture" id=7]
 [ext_resource path="res://terrain_texture/slot1_albedo_bump.packed_tex" type="Texture" id=8]
-[ext_resource path="res://codes/camera_script.gd" type="Script" id=9]
-[ext_resource path="res://scenes/KinematicBody.tscn" type="PackedScene" id=10]
+[ext_resource path="res://codes/vehicle_camera_controls.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Vehicle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -209,13 +210,15 @@ autoplay = "sky olor"
 anims/RESET = SubResource( 8 )
 "anims/sky olor" = SubResource( 9 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 222.452, 0, 59.8465 )
+[node name="Vehicle" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 277.75, 4.50659, 63.6182 )
 
-[node name="Axis" type="Spatial" parent="."]
+[node name="Axis" type="Spatial" parent="Vehicle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.77548, 0 )
 script = ExtResource( 9 )
-inverse_y = true
-target = NodePath("../KinematicBody")
 
-[node name="Camera" type="Camera" parent="Axis"]
-transform = Transform( -1, 1.77636e-15, -8.74228e-08, -2.26267e-08, 0.965926, 0.258819, 8.44439e-08, 0.258819, -0.965926, 0, 2.20561, -4.55048 )
+[node name="Camera" type="Camera" parent="Vehicle/Axis"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -16.9972 )
+far = 500.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 11 )]

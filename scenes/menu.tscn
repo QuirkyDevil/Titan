@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcreg62836wp7"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_i6ypx"]
+[ext_resource type="FontFile" uid="uid://boqbi4kmcdk11" path="res://Born2bSportyV2.ttf" id="2_5ggpi"]
+
+[node name="Menu" type="MarginContainer"]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_i6ypx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.176471, 0.384314, 0.368627, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5ggpi")
+theme_override_font_sizes/font_size = 100
+text = "Welcome to Titan!"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5ggpi")
+theme_override_font_sizes/font_size = 31
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5ggpi")
+theme_override_font_sizes/font_size = 31
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_fonts/font = ExtResource("2_5ggpi")
+theme_override_font_sizes/font_size = 31
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

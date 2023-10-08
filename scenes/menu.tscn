@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Born2bSportyV2.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Born2bSportyV2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://codes/menu.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -55,6 +55,7 @@ margin_bottom = 268.0
 margin_left = 246.0
 margin_right = 380.0
 margin_bottom = 164.0
+alignment = 1
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 margin_right = 134.0

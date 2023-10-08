@@ -16,14 +16,10 @@ export var throttle_mult = 1.0
 export var joy_brake = JOY_ANALOG_L2
 export var brake_mult = 1.0
 
-onready var water = get_parent().get_node("water")
-
-func _ready():
-	pass
-
 func _physics_process(delta):
 	
-	
+	if global_transform.origin.y < -7.867:
+		get_tree().change_scene("res://scenes/GameOver.tscn")
 	var steer_val = steering_mult * Input.get_joy_axis(0, joy_steering)
 	var throttle_val = throttle_mult * Input.get_joy_axis(0, joy_throttle)
 	var brake_val = brake_mult * Input.get_joy_axis(0, joy_brake)

@@ -28,13 +28,10 @@ var boost = 0
 onready var axis = get_parent().get_node("Axis")
 onready var animator = $"atomic-robot/AnimationPlayer"
 
-# ------------------------------------------------------------------
-# Robot 3D model from Atomic Game Engine examples, author Bartheinz.
-# ------------------------------------------------------------------
 
 func _physics_process(delta):
 	direction = Vector3()
-	if Input.is_action_pressed("forward"):
+	if Input.is_action_pressed("ui_up"):
 		forward = true
 		direction.z = 1
 		define_direction = true
@@ -47,7 +44,7 @@ func _physics_process(delta):
 		if not jump and not fall and not backward:
 			animator.play("Default", 0.3) 
 			# previous animation/s will be blend to "Default" for 0.3 sec.
-	if Input.is_action_pressed("backward"):
+	if Input.is_action_pressed("ui_down"):
 		backward = true
 		direction.z = -1
 		define_direction = false

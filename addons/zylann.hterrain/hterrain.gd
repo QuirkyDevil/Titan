@@ -198,6 +198,19 @@ var _normals_baker = null
 var _lookdev_enabled := false
 var _lookdev_material : ShaderMaterial
 
+var coin_scene = preload("res://scenes/coin.tscn")
+func _ready():
+	spawn_coins()
+	
+func spawn_coins():
+	# Adjust the range and density as per your level
+	var num_coins = rand_range(5, 10) 
+	for i in range(num_coins):
+		var coin_instance = coin_scene.instance()
+		var spawn_position = Vector3(rand_range(0, 512), rand_range(-7, 20), rand_range(0, 512))
+		coin_instance.transform.origin = spawn_position
+		add_child(coin_instance)
+
 
 func _init():
 	_logger.debug("Create HeightMap")
@@ -459,7 +472,6 @@ func set_texture_set(new_set: HTerrainTextureSet):
 		_texture_set.connect("changed", self, "_on_texture_set_changed")
 
 	_material_params_need_update = true
-
 
 func _on_texture_set_changed():
 	_material_params_need_update = true
@@ -1604,4 +1616,3 @@ class HT_SetRenderLayerMaskAction:
 		mask = m
 	func exec(chunk):
 		chunk.set_render_layer_mask(mask)
-

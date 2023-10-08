@@ -1,9 +1,5 @@
 extends Spatial
 
-# ---------------------
-# Script author: Warrpy
-# ---------------------
-
 var increment = 0
 var enabled = false
 var mouse_x = 0
@@ -17,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	transform.origin.y = vehicle.transform.origin.y #+ offset
 	transform.origin.z = vehicle.transform.origin.z #+ offset
 	transform.origin.x = vehicle.transform.origin.x #+ offset

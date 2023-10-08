@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 1024,
+	"src": {
+		"a": "res://textures/Ground 048/Ground048_1K-JPG_Displacement.jpg",
+		"rgb": "res://textures/Ground 048/Ground048_1K-JPG_Color.jpg"
+	}
+}

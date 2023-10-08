@@ -5,7 +5,7 @@ var KillParticles = load("res://scenes/KillParticles.tscn")
 onready var main = get_tree().current_scene
 onready var explodeSound = $EnemyExplode
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide(velo)
 
 func _on_Area_body_entered(body):
